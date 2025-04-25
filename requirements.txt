@@ -1,0 +1,8 @@
+flask
+setuptools
+wheel
+build
+pytest
+coverage
+pytest-cov
+twine
