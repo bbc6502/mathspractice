@@ -16,6 +16,9 @@ build: .venv
 	rm -fr dist *.egg-info
 	.venv/bin/python -m build
 
+build-view: build
+	tar -zvtf dist/mathspractice*.tar.gz
+
 upload-test: build
 	.venv/bin/python -m twine upload --repository testpypi dist/*
 
@@ -24,7 +27,7 @@ upload-prod: build
 
 merge-branch:
 	git checkout main
-	git merge 0.0.2
+	git merge 0.0.3
 
 tag-build:
-	git tag 0.0.2
+	git tag 0.0.3

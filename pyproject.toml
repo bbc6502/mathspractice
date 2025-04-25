@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mathspractice"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
     { name = "David Johnston" , email = "c0d3@gpobox.net" }
 ]
@@ -34,3 +34,6 @@ dev = [
 test = [
     "pytest", "coverage", "pytest-cov"
 ]
+
+[tool.setuptools.package-data]
+"*" = [ "*.html" , "*.css" ]
