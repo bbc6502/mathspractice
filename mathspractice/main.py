@@ -25,4 +25,8 @@ def run():
     def index():
         return render_template('index.html')
 
-    app.run()
+    host_name = os.environ.get('HOST', '127.0.0.1')
+    port_num = int(os.environ.get('PORT', '5000'))
+    debug_flag = bool(os.environ.get('DEBUG', False))
+
+    app.run(host=host_name, port=port_num, debug=debug_flag)

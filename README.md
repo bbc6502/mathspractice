@@ -17,3 +17,16 @@ Lesson 2 - Multiplication
 
 Lesson 3 - Division
 
+## Installation
+
+pip install --upgrade mathspractice
+
+## Running
+
+mathspractice
+
+## Environment Variables
+
+HOST = Host name to listen on (default 127.0.0.1)
+PORT = Port number to listen on (default 5000)
+DEBUG = True to enable debugging
