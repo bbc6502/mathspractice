@@ -10,7 +10,7 @@ requirements: .venv
 	.venv/bin/python -m pip install --upgrade pip -r requirements.txt
 
 run: .venv
-	.venv/bin/python -m mathspractice
+	DEBUG=TRUE .venv/bin/python -m mathspractice
 
 build: .venv
 	rm -fr dist *.egg-info
@@ -27,7 +27,7 @@ upload-prod: build
 
 merge-branch:
 	git checkout main
-	git merge 0.0.4
+	git merge 0.0.5
 
 tag-build:
-	git tag 0.0.4
+	git tag 0.0.5

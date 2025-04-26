@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h1><a href="{{ url_for('lesson3.index') }}">{% block title %}Lesson 3{% endblock %}</a></h1>
+    <h1><a class="button" href="{{ url_for('lesson3.index') }}">{% block title %}Lesson 3{% endblock %}</a></h1>
 {% endblock %}
 
 {% block content %}
 
-    <h1><a href="{{ url_for('lesson3.division') }}">Division</a></h1>
+    <h1><a class="button" href="{{ url_for('lesson3.division') }}">Division</a></h1>
     {% set lesson = 'lesson3' %}
     {% set section = 'division' %}
     {% include 'stats.html' %}
@@ -18,9 +18,9 @@
             <tr><td>&nbsp;</td><td class="right">{{ first }}</td></tr>
             <tr><td class="right">÷</td><td class="right">{{ second }}</td></tr>
             <tr><td class="right">=</td><td class="right">
-                <input class="right" type="text" id="answer" name="answer" autocomplete="off" autofocus>
+                <input class="right" type="number" id="answer" name="answer" autocomplete="off" autofocus>
                 <br/>r
-                <input class="right" type="text" id="remainder" name="remainder" autocomplete="off" value="0">
+                <input class="right" type="number" id="remainder" name="remainder" autocomplete="off" value="0">
             </td></tr>
             <tr><td colspan="2" class="center"><input type="submit" id="submit" name="Check" value="Check"></td></tr>
         </table>
