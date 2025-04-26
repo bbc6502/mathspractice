@@ -1,4 +1,7 @@
+import base64
+import json
 import time
+import zlib
 
 from flask import session
 
@@ -6,10 +9,24 @@ from flask import session
 class Statistics:
 
     def __init__(self):
-        self.stats = session.get('stats', {})
+        stats = session.get('stats')
+        if stats is None:
+            stats = {}
+        elif not isinstance(stats, dict):
+            stats = stats.encode('ascii')
+            stats = base64.b64decode(stats)
+            stats = zlib.decompress(stats)
+            stats = stats.decode('utf-8')
+            stats = json.loads(stats)
+        self.stats = stats
 
     def save(self):
-        session['stats'] = self.stats
+        stats = json.dumps(self.stats)
+        stats = stats.encode('utf-8')
+        stats = zlib.compress(stats, level=9)
+        stats = base64.b64encode(stats)
+        stats = stats.decode('ascii')
+        session['stats'] = stats
         session.modified = True
         session.permanent = True
 
