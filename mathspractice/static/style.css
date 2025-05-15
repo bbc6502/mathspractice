@@ -29,6 +29,7 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
 
+.left { text-align: left; }
 .right { text-align: right; }
 .center { text-align: center; }
 
@@ -37,6 +38,32 @@ table.stats { width: 100%; }
 table.compact { width: 7em; margin-left: auto; margin-right: auto; background: #efefef; border-radius: 0.5em; padding: 0.5em; font-size: 2em; }
 table.compact input { width: 6em; margin: 0; }
 table.compact td { padding: 0; }
+
+table.rules {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #efefef;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    border-collapse: collapse;
+}
+table.rules caption {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1em;
+}
+table.rules th {
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 1px solid black;
+}
+table.rules td {
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 1px solid black;
+}
 
 .button {
     display: inline;
@@ -52,4 +79,26 @@ table.compact td { padding: 0; }
     margin: 0;
     border-width: 1px;
     border-bottom-style: dashed;
+}
+
+div.equals {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+div.numerator {
+    text-align: center;
+    width: auto;
+}
+
+div.denominator {
+    text-align: center;
+    width: auto;
+}
+
+hr.divisor {
+    border-style: solid;
+    border-top: 1px solid lightgray;
+    width: auto;
+    text-align: center;
 }
