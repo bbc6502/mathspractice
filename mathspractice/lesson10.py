@@ -65,7 +65,7 @@ def percent_to_fractions():
             statistics.save()
         except Exception as e:
             flash(str(e), category='error')
-    max_value = int(math.pow(10, 2 + stats['correct'] // 30))
+    max_value = int(math.pow(10, 2 + stats['correct'] // 20))
     first = random.randint(2, max_value-1) / 10
     now = int(time.time())
     return render_template(
@@ -97,7 +97,7 @@ def percent_to_decimals():
             statistics.save()
         except Exception as e:
             flash(str(e), category='error')
-    max_value = int(math.pow(10, 2 + stats['correct'] // 30))
+    max_value = int(math.pow(10, 2 + stats['correct'] // 15))
     first = random.randint(2, max_value-1) / 10
     now = int(time.time())
     return render_template(
