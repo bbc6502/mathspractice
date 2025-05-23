@@ -20,6 +20,8 @@ from . import lesson3
 app.register_blueprint(lesson3.bp, url_prefix='/lesson3')
 from . import lesson4
 app.register_blueprint(lesson4.bp, url_prefix='/lesson4')
+from . import lesson10
+app.register_blueprint(lesson10.bp, url_prefix='/lesson10')
 
 @app.route('/')
 def index():

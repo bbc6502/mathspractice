@@ -102,3 +102,7 @@ hr.divisor {
     width: auto;
     text-align: center;
 }
+
+.nowrap {
+    white-space: nowrap;
+}
