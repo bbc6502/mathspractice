@@ -27,7 +27,7 @@ upload-prod: build
 
 merge-branch:
 	git checkout main
-	git merge 0.0.10
+	git merge 0.0.11
 
 tag-build:
-	git tag 0.0.10
+	git tag 0.0.11

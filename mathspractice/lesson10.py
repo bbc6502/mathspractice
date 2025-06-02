@@ -130,10 +130,19 @@ def fraction_to_decimals():
             statistics.save()
         except Exception as e:
             flash(str(e), category='error')
+    first, second = _calculate_num_denom(stats)
+    now = int(time.time())
+    return render_template(
+        'lesson10/fraction_to_decimals.html',
+        first=first, second=second, now=now, statistics=statistics
+    )
+
+
+def _calculate_num_denom(stats):
     max_value = int(math.pow(10, 1 + stats['correct'] // 15))
     while True:
-        first = random.randint(2, max_value-1)
-        second = random.randint(2, max_value-1)
+        first = random.randint(2, max_value - 1)
+        second = random.randint(2, max_value - 1)
         answer = str(Decimal(first) / Decimal(second))
         if '.' not in answer:
             continue
@@ -142,8 +151,38 @@ def fraction_to_decimals():
             decimals = decimals[:-1]
         if 0 < len(decimals) <= 4:
             break
+    return first, second
+
+
+@bp.route('/decimals/to/fractions', methods=['GET', 'POST'])
+def decimals_to_fractions():
+    when = time.time()
+    statistics = Statistics()
+    stats = statistics.get_stats('lesson10', 'decimals_to_fractions')
+    if request.method == 'POST':
+        try:
+            if not request.form.get('numerator') or not request.form.get('denominator'):
+                raise ValueError('Sorry. You needed to provide a numerator and denominator. Please try again.')
+            first = Decimal(request.form.get('first'))
+            numerator = int(request.form.get('numerator'))
+            denominator = int(request.form.get('denominator'))
+            now = float(request.form.get('now'))
+            elapsed = when - now
+            real_numerator, real_denominator = first.as_integer_ratio()
+            stats['seconds'] += elapsed
+            if numerator == real_numerator and denominator == real_denominator:
+                flash(f"Correct. Well done! {first} = {numerator} / {denominator}", category='correct')
+                stats['correct'] += 1
+            else:
+                flash(f"Incorrect. I'm sorry but {first} is not reduced to {numerator} / {denominator}. It is {real_numerator} / {real_denominator}", category='incorrect')
+                stats['incorrect'] += 1
+            statistics.save()
+        except Exception as e:
+            flash(str(e), category='error')
+    first, second = _calculate_num_denom(stats)
+    first = str(Decimal(first) / Decimal(second))
     now = int(time.time())
     return render_template(
-        'lesson10/fraction_to_decimals.html',
-        first=first, second=second, now=now, statistics=statistics
+        'lesson10/decimals_to_fractions.html',
+        first=first, now=now, statistics=statistics
     )
