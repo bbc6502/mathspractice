@@ -106,3 +106,7 @@ hr.divisor {
 .nowrap {
     white-space: nowrap;
 }
+
+.problem {
+    font-weight: bold;
+}

@@ -17,6 +17,12 @@ Lesson 2 - Multiplication
 
 Lesson 3 - Division
 
+Lesson 4 - Introduction to Fractions
+
+Lesson 10 - Fractions, Decimals, and Percents
+
+Lesson 11 - Percent Problems
+
 ## Installation
 
 pip install --upgrade mathspractice
